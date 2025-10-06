@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { User, Settings, Search, Mic, Bell } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function InventoryManagementScreen() {
   return (
@@ -8,11 +8,11 @@ export default function InventoryManagementScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.userAvatar}>
-          <User color="#ffffff" size={20} />
+          <Ionicons name="person" color="#ffffff" size={20} />
         </View>
         <Text style={styles.headerTitle}>AI Dashboard</Text>
         <TouchableOpacity style={styles.settingsButton}>
-          <Settings color="#ffffff" size={24} />
+          <Ionicons name="settings" color="#ffffff" size={24} />
         </TouchableOpacity>
       </View>
 
@@ -42,7 +42,7 @@ export default function InventoryManagementScreen() {
             <Text style={styles.chartGrowth}>+5.2%</Text>
           </View>
           <View style={styles.chartPlaceholder}>
-            <Text style={styles.chartPlaceholderText}>=È Chart</Text>
+            <Text style={styles.chartPlaceholderText}>=ï¿½ Chart</Text>
           </View>
           <View style={styles.chartLabels}>
             <Text style={styles.chartLabel}>Week 1</Text>

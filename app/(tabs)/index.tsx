@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import { Mic, Home, Package, Lightbulb, Settings } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
@@ -26,7 +26,7 @@ export default function DashboardHome() {
           <View style={styles.orb}>
             <View style={styles.orbRing1} />
             <View style={styles.orbRing2} />
-            <Mic color="#ffffff" size={80} style={styles.micIcon} />
+            <Ionicons name="mic" color="#ffffff" size={80} style={styles.micIcon} />
           </View>
         </View>
 

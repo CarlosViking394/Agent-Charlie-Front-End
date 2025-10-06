@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Sparkles, TrendingUp, TrendingDown, ArrowUpRight, Mic, ChevronDown } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function InsightsDashboardScreen() {
   return (
@@ -10,7 +10,7 @@ export default function InsightsDashboardScreen() {
         <Text style={styles.headerTitle}>Analytics Dashboard</Text>
         <View style={styles.headerRight}>
           <Text style={styles.headerPeriod}>Last 30 Days</Text>
-          <ChevronDown color="#9ca3af" size={20} />
+          <Ionicons name="chevron-down" color="#9ca3af" size={20} />
         </View>
       </View>
 
@@ -18,7 +18,7 @@ export default function InsightsDashboardScreen() {
         {/* AI Insights Card */}
         <View style={styles.aiInsightCard}>
           <View style={styles.aiInsightHeader}>
-            <Sparkles color="#00FFFF" size={28} />
+            <Ionicons name="sparkles" color="#00FFFF" size={28} />
             <Text style={styles.aiInsightTitle}>AI-Powered Insights</Text>
           </View>
           <Text style={styles.aiInsightText}>
@@ -32,7 +32,7 @@ export default function InsightsDashboardScreen() {
             <Text style={styles.kpiLabel}>Total Inventory Value</Text>
             <Text style={styles.kpiValue}>$1.2M</Text>
             <View style={styles.kpiChange}>
-              <TrendingUp color="#10b981" size={16} />
+              <Ionicons name="trending-up" color="#10b981" size={16} />
               <Text style={styles.kpiChangePositive}>+5.2%</Text>
             </View>
           </View>
@@ -41,7 +41,7 @@ export default function InsightsDashboardScreen() {
             <Text style={styles.kpiLabel}>Stock Turnover Rate</Text>
             <Text style={styles.kpiValue}>4.5</Text>
             <View style={styles.kpiChange}>
-              <TrendingDown color="#ef4444" size={16} />
+              <Ionicons name="trending-down" color="#ef4444" size={16} />
               <Text style={styles.kpiChangeNegative}>-1.8%</Text>
             </View>
           </View>
@@ -50,7 +50,7 @@ export default function InsightsDashboardScreen() {
             <Text style={styles.kpiLabel}>Out of Stock Items</Text>
             <Text style={styles.kpiValue}>12</Text>
             <View style={styles.kpiChange}>
-              <ArrowUpRight color="#10b981" size={16} />
+              <Ionicons name="arrow-up-circle" color="#10b981" size={16} />
               <Text style={styles.kpiChangePositive}>+3</Text>
             </View>
           </View>

@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Home, Package, Mic, Lightbulb } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabsLayout() {
   return (
@@ -19,28 +19,28 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="home" color={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="inventory"
         options={{
           title: 'Inventory',
-          tabBarIcon: ({ color, size }) => <Package color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="cube" color={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="voice"
         options={{
           title: 'Voice',
-          tabBarIcon: ({ color, size }) => <Mic color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="mic" color={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="insights"
         options={{
           title: 'Insights',
-          tabBarIcon: ({ color, size }) => <Lightbulb color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="bulb" color={color} size={size} />,
         }}
       />
     </Tabs>

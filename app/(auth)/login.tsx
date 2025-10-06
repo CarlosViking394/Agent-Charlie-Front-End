@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Layers } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,7 +16,7 @@ export default function LoginScreen() {
 
       <View style={styles.content}>
         <View style={styles.logoContainer}>
-          <Layers color="#13a4ec" size={48} />
+          <Ionicons name="layers" color="#13a4ec" size={48} />
         </View>
 
         <Text style={styles.title}>Welcome Back</Text>

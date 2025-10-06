@@ -1,7 +1,7 @@
 # Dockerfile for Agent Charlie Front End
 # Supports web development and testing
 
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Install dependencies for Expo
 RUN apk add --no-cache git
@@ -12,7 +12,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 
 # Copy project files
 COPY . .

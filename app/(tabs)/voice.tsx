@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { ArrowLeft, Mic } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
 const quickCommands = [
@@ -32,7 +32,7 @@ export default function VoiceCommandScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <ArrowLeft color="#ffffff" size={24} />
+          <Ionicons name="arrow-back" color="#ffffff" size={24} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Voice Command</Text>
         <View style={styles.headerSpacer} />
