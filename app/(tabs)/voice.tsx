@@ -58,7 +58,7 @@ export default function VoiceCommandScreen() {
             onPress={() => setIsListening(!isListening)}
             activeOpacity={0.8}
           >
-            <Mic color="#ffffff" size={40} />
+            <Ionicons name="mic" color="#ffffff" size={40} />
           </TouchableOpacity>
         </View>
 

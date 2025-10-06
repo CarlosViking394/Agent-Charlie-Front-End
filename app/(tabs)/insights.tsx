@@ -165,7 +165,7 @@ export default function InsightsDashboardScreen() {
       {/* Voice Command FAB */}
       <View style={styles.fabContainer}>
         <TouchableOpacity style={styles.fab}>
-          <Mic color="#ffffff" size={24} />
+          <Ionicons name="mic" color="#ffffff" size={24} />
           <Text style={styles.fabText}>Ask me anything...</Text>
         </TouchableOpacity>
       </View>

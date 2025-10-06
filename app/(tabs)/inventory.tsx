@@ -112,21 +112,6 @@ export default function InventoryManagementScreen() {
 
         <View style={styles.bottomSpacer} />
       </ScrollView>
-
-      {/* Footer Navigation */}
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButton}>
-          <Search color="#13a4ec" size={28} />
-          <Text style={styles.footerLabel}>Search</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerMicButton}>
-          <Mic color="#ffffff" size={32} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Bell color="#13a4ec" size={28} />
-          <Text style={styles.footerLabel}>Alerts</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -346,34 +331,5 @@ const styles = StyleSheet.create({
   },
   bottomSpacer: {
     height: 100,
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'rgba(16, 28, 34, 0.8)',
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(19, 164, 236, 0.3)',
-    paddingVertical: 16,
-  },
-  footerButton: {
-    alignItems: 'center',
-  },
-  footerMicButton: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: '#13a4ec',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#13a4ec',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 15,
-  },
-  footerLabel: {
-    fontSize: 12,
-    color: '#13a4ec',
-    marginTop: 4,
   },
 });

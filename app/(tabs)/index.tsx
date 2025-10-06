@@ -59,36 +59,6 @@ export default function DashboardHome() {
           </View>
         </View>
       </View>
-
-      {/* Bottom Navigation */}
-      <View style={styles.bottomNav}>
-        <View style={styles.navContainer}>
-          <TouchableOpacity style={styles.navItem} onPress={() => router.push('/(tabs)')}>
-            <Home color="#ffffff70" size={28} />
-            <Text style={styles.navLabel}>Home</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.navItem} onPress={() => router.push('/(tabs)/inventory')}>
-            <Package color="#ffffff70" size={28} />
-            <Text style={styles.navLabel}>Inventory</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.navItemActive} onPress={() => router.push('/(tabs)/voice')}>
-            <Mic color="#00FFFF" size={28} />
-            <Text style={styles.navLabelActive}>Voice</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.navItem} onPress={() => router.push('/(tabs)/insights')}>
-            <Lightbulb color="#ffffff70" size={28} />
-            <Text style={styles.navLabel}>Insights</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.navItem}>
-            <Settings color="#ffffff70" size={28} />
-            <Text style={styles.navLabel}>Settings</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
     </View>
   );
 }
@@ -124,7 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    paddingBottom: 112,
+    paddingBottom: 100,
     zIndex: 10,
   },
   greeting: {
@@ -218,52 +188,5 @@ const styles = StyleSheet.create({
   },
   statAlert: {
     color: '#ef4444',
-  },
-  bottomNav: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-    paddingTop: 8,
-    zIndex: 20,
-  },
-  navContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'rgba(10, 15, 25, 0.5)',
-    borderTopWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    paddingVertical: 12,
-    shadowColor: '#00FFFF',
-    shadowOffset: { width: 0, height: -5 },
-    shadowOpacity: 0.2,
-    shadowRadius: 20,
-  },
-  navItem: {
-    alignItems: 'center',
-    opacity: 0.7,
-  },
-  navItemActive: {
-    alignItems: 'center',
-  },
-  navLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.7)',
-    marginTop: 4,
-  },
-  navLabelActive: {
-    fontSize: 12,
-    color: '#00FFFF',
-    marginTop: 4,
-    textShadowColor: 'rgba(0, 255, 255, 0.7)',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 10,
   },
 });
