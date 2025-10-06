@@ -1,0 +1,39 @@
+{
+  "name": "agent-charlie-front-end",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f app",
+    "docker:test": "docker-compose run --rm test",
+    "docker:type-check": "docker-compose run --rm typescript",
+    "docker:shell": "docker-compose exec app sh",
+    "docker:clean": "docker-compose down -v && docker system prune -f"
+  },
+  "dependencies": {
+    "expo": "54",
+    "expo-constants": "~18.0.9",
+    "expo-linear-gradient": "~15.0.7",
+    "expo-router": "~6.0.10",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-svg": "15.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0",
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

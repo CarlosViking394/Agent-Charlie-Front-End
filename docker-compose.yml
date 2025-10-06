@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Main development service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent-charlie-app
+    ports:
+      - "19006:19006"  # Expo web
+      - "8081:8081"    # Metro bundler
+      - "19000:19000"  # Expo dev tools
+      - "19001:19001"  # Expo dev server
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.expo
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+      - NODE_ENV=development
+    command: npm start -- --web
+    stdin_open: true
+    tty: true
+    networks:
+      - agent-charlie-network
+
+  # TypeScript checker service
+  typescript:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent-charlie-typescript
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run type-check
+    networks:
+      - agent-charlie-network
+
+  # Testing service (for future use)
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent-charlie-test
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm test
+    networks:
+      - agent-charlie-network
+
+networks:
+  agent-charlie-network:
+    driver: bridge
