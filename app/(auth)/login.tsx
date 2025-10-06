@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { colors, containerStyles, logoStyles, textStyles, inputStyles, buttonStyles, alertStyles } from '@/theme';
@@ -45,7 +46,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={containerStyles.container}>
+    <SafeAreaView style={containerStyles.container}>
       {/* Animated Background */}
       <View style={containerStyles.backgroundOverlay} />
 
@@ -120,6 +121,6 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
@@ -9,7 +10,7 @@ export default function DashboardHome() {
   const router = useRouter();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Background Glows */}
       <View style={styles.glowTopLeft} />
       <View style={styles.glowBottomRight} />
@@ -59,7 +60,7 @@ export default function DashboardHome() {
           </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

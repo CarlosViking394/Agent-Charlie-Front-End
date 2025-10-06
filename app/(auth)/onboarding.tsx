@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
@@ -44,7 +45,7 @@ export default function OnboardingScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         {/* Progress Indicators */}
         <View style={styles.progressContainer}>
@@ -88,7 +89,7 @@ export default function OnboardingScreen() {
           )}
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

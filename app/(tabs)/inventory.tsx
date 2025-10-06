@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function InventoryManagementScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.userAvatar}>
@@ -112,7 +113,7 @@ export default function InventoryManagementScreen() {
 
         <View style={styles.bottomSpacer} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

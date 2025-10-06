@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Main development service
   app:
@@ -18,7 +16,7 @@ services:
       - /app/.expo
     environment:
       - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
-      - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=localhost
       - NODE_ENV=development
     command: npx expo start --web --port 19006
     stdin_open: true

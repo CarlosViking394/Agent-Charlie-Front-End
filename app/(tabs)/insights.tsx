@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function InsightsDashboardScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Analytics Dashboard</Text>
@@ -169,7 +170,7 @@ export default function InsightsDashboardScreen() {
           <Text style={styles.fabText}>Ask me anything...</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

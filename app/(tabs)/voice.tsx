@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
@@ -28,7 +29,7 @@ export default function VoiceCommandScreen() {
   const [currentCommand, setCurrentCommand] = useState('"Add 50 units of product SKU 12345 to warehouse B."');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
@@ -101,7 +102,7 @@ export default function VoiceCommandScreen() {
 
         <View style={styles.bottomSpacer} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
