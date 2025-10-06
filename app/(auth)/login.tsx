@@ -1,131 +1,125 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import { colors, containerStyles, logoStyles, textStyles, inputStyles, buttonStyles, alertStyles } from '@/theme';
 
-const { width, height } = Dimensions.get('window');
+// Hardcoded test user credentials
+const TEST_USER = {
+  email: 'admin@agentcharlie.com',
+  password: 'admin123'
+};
 
 export default function LoginScreen() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = () => {
+    setError('');
+    setIsLoading(true);
+
+    // Validate inputs
+    if (!email || !password) {
+      setError('Please enter both email and password');
+      setIsLoading(false);
+      return;
+    }
+
+    // Check credentials
+    if (email === TEST_USER.email && password === TEST_USER.password) {
+      // Simulate API delay
+      setTimeout(() => {
+        setIsLoading(false);
+        // Navigate to main app
+        router.replace('/(tabs)');
+      }, 500);
+    } else {
+      setTimeout(() => {
+        setError('Invalid email or password');
+        setIsLoading(false);
+      }, 500);
+    }
+  };
 
   return (
-    <View style={styles.container}>
+    <View style={containerStyles.container}>
       {/* Animated Background */}
-      <View style={styles.backgroundOverlay} />
+      <View style={containerStyles.backgroundOverlay} />
 
-      <View style={styles.content}>
-        <View style={styles.logoContainer}>
-          <Ionicons name="layers" color="#13a4ec" size={48} />
+      <View style={containerStyles.content}>
+        <View style={logoStyles.logoContainer}>
+          <Ionicons name="layers" color={colors.primary} size={48} />
         </View>
 
-        <Text style={styles.title}>Welcome Back</Text>
+        <Text style={textStyles.title}>Welcome Back</Text>
 
-        <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Email</Text>
+        {/* Demo Credentials Info */}
+        <View style={alertStyles.demoInfo}>
+          <Text style={textStyles.demoTitle}>Demo Credentials:</Text>
+          <Text style={textStyles.demoText}>Email: admin@agentcharlie.com</Text>
+          <Text style={textStyles.demoText}>Password: admin123</Text>
+        </View>
+
+        <View style={inputStyles.formContainer}>
+          <View style={inputStyles.inputContainer}>
+            <Text style={textStyles.label}>Email</Text>
             <TextInput
-              style={styles.input}
+              style={inputStyles.input}
               placeholder="Enter your email"
-              placeholderTextColor="#9db0b9"
+              placeholderTextColor={colors.textSecondary}
               value={email}
-              onChangeText={setEmail}
+              onChangeText={(text) => {
+                setEmail(text);
+                setError('');
+              }}
               keyboardType="email-address"
               autoCapitalize="none"
+              editable={!isLoading}
             />
           </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Password</Text>
+          <View style={inputStyles.inputContainer}>
+            <Text style={textStyles.label}>Password</Text>
             <TextInput
-              style={styles.input}
+              style={inputStyles.input}
               placeholder="Enter your password"
-              placeholderTextColor="#9db0b9"
+              placeholderTextColor={colors.textSecondary}
               value={password}
-              onChangeText={setPassword}
+              onChangeText={(text) => {
+                setPassword(text);
+                setError('');
+              }}
               secureTextEntry
+              editable={!isLoading}
+              onSubmitEditing={handleLogin}
             />
           </View>
 
-          <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>Login</Text>
+          {error ? (
+            <View style={alertStyles.errorContainer}>
+              <Ionicons name="alert-circle" color={colors.error} size={16} />
+              <Text style={textStyles.errorText}>{error}</Text>
+            </View>
+          ) : null}
+
+          <TouchableOpacity
+            style={[buttonStyles.primary, isLoading && buttonStyles.primaryDisabled]}
+            onPress={handleLogin}
+            disabled={isLoading}
+          >
+            <Text style={buttonStyles.primaryText}>
+              {isLoading ? 'Logging in...' : 'Login'}
+            </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text style={styles.forgotPassword}>Forgot Password?</Text>
+          <TouchableOpacity disabled={isLoading}>
+            <Text style={textStyles.linkText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#101c22',
-  },
-  backgroundOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(16, 28, 34, 0.8)',
-    zIndex: 0,
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    zIndex: 10,
-  },
-  logoContainer: {
-    marginBottom: 32,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 32,
-    textAlign: 'center',
-  },
-  formContainer: {
-    width: '100%',
-    maxWidth: 480,
-  },
-  inputContainer: {
-    marginBottom: 16,
-  },
-  label: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#ffffff',
-    marginBottom: 8,
-  },
-  input: {
-    backgroundColor: '#283339',
-    borderRadius: 8,
-    height: 56,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    color: '#ffffff',
-  },
-  loginButton: {
-    backgroundColor: '#13a4ec',
-    borderRadius: 8,
-    height: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 16,
-  },
-  loginButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  forgotPassword: {
-    color: '#9db0b9',
-    fontSize: 14,
-    textAlign: 'center',
-    marginTop: 12,
-    textDecorationLine: 'underline',
-  },
-});
